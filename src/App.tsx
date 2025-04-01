@@ -1,9 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "./redux/features/counterSlice";
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+} from "./redux/features/counterSlice";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
 
 function App() {
-  const count = useSelector((state) => state.counter.value); //consuming state / state: current state, counter: from store
-  const dispatch = useDispatch();
+  const count = useAppSelector((state) => state.counter.value); //consuming state / state: current state, counter: from store
+  const dispatch = useAppDispatch();
   return (
     <>
       <div className="h-screen flex justify-center items-center">
@@ -20,6 +24,12 @@ function App() {
             className="bg-red-600 text-white px-3 py-2 rounded-xl"
           >
             Increment
+          </button>
+          <button
+            onClick={() => dispatch(incrementByAmount({ value: 3 }))}
+            className="bg-blue-600 text-white px-3 py-2 rounded-xl"
+          >
+            Increment by 3
           </button>
         </div>
       </div>

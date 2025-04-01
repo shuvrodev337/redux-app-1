@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {
+interface ICounterType {
+  value: number;
+}
+
+const initialState: ICounterType = {
   value: 0,
 };
 export const counterSlice = createSlice({
@@ -9,16 +13,16 @@ export const counterSlice = createSlice({
     // what action will be taken for coresponding actions.. will be defined here
     // increment, decrement are actions
     increment: (state) => {
-      state.value += 1;
+      state.value = state.value + 1;
     },
     decrement: (state) => {
-      state.value -= 1;
+      state.value = state.value - 1;
     },
     incrementByAmount: (state, action) => {
-      state.value += action.payload;
+      state.value = state.value + action.payload.value;
     },
   },
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 export default counterSlice.reducer;
