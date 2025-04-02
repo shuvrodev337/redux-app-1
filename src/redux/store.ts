@@ -26,3 +26,10 @@ export type AppDispatch = typeof store.dispatch;
 // bts redux handles state immutabilty for refference type data by the help of Imeer.
 // redux - local state manage kore
 // rtk query - async state( depended on db), manage kore, gives us hooks to crud async data just like tanstack query.
+
+/* steps: 
+1. create store + configureStore 
+2. connect store app to main.tsx
+3. create slice for corresponding feature
+4. In store reducer,  declare state with related reducer(from coresponding slice)
+*/
